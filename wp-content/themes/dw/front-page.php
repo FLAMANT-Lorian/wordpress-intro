@@ -9,11 +9,15 @@
     <title><?= wp_title('·', 'false', 'right') . get_bloginfo('name'); ?></title>
 </head>
 <body>
-    <header>
-        <h1><?= get_bloginfo('name'); ?></h1>
-        <p><?= get_bloginfo('description'); ?></p>
-    </header>
+<header>
+    <h1><?= get_bloginfo('name'); ?></h1>
+    <p><?= get_bloginfo('description'); ?></p>
+</header>
 <main>
+
+    <aside>
+        <h2>Bienvenue sur mon site&nbsp;!</h2>
+    </aside>
     <!--On ouvre "la boucle" ("The Loop"), la structure de contrôle de contenu propre à Wordpress-->
     <?php if (have_posts()): while (have_posts()): the_post(); ?>
 
