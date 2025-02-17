@@ -22,7 +22,7 @@ add_action( 'wp_enqueue_scripts', function() {
 
 
 //Pour le post_type dans le tableaux support (Activer l'utilisations des images de couvertures sur nos post_type)
-add_theme_support( 'post-thumbnails', ['recipe']);
+add_theme_support( 'post-thumbnails', ['recipe', 'country']);
 
 
 // Enregistrer de nouveaux "types de contenu", qui seront stockés dans la table "wp_posts", avec un identifiant de type spécifique dans la collone 'post_type"
@@ -38,5 +38,19 @@ register_post_type('recipe', [
     ],
     'supports' => [
         'title', 'editor', 'excerpt', 'thumbnail',
-    ]
+    ],
+]);
+
+register_post_type('country', [
+    'label' => 'Pays',
+    'description' => 'Un joli voyage',
+    'menu_position' => 7,
+    'menu_icon' => 'dashicons-admin-site',
+    'public' => true,
+    'rewrite' => [
+        'slug' => 'pays',
+    ],
+    'supports' => [
+        'title', 'editor', 'excerpt', 'thumbnail',
+    ],
 ]);
