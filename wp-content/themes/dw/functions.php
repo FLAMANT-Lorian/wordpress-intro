@@ -1,9 +1,4 @@
 <?php
-
-// Gutenberg est le nouvel éditeur de contenu propre a WordPress
-// Il ne nous intéresse pas pour l'utilisation du thème que nous allons créer
-// On va le désactiver :
-
 // Disable Gutenberg on the back end.
 add_filter( 'use_block_editor_for_post', '__return_false' );
 
@@ -22,7 +17,7 @@ add_action( 'wp_enqueue_scripts', function() {
 
 
 //Pour le post_type dans le tableaux support (Activer l'utilisations des images de couvertures sur nos post_type)
-add_theme_support( 'post-thumbnails', ['recipe', 'country']);
+add_theme_support( 'post-thumbnails', ['recipe', 'travel']);
 
 
 // Enregistrer de nouveaux "types de contenu", qui seront stockés dans la table "wp_posts", avec un identifiant de type spécifique dans la collone 'post_type"
@@ -41,16 +36,20 @@ register_post_type('recipe', [
     ],
 ]);
 
-register_post_type('country', [
-    'label' => 'Pays',
+register_post_type('travel', [
+    'label' => 'Voyage',
     'description' => 'Un joli voyage',
     'menu_position' => 7,
-    'menu_icon' => 'dashicons-admin-site',
+    'menu_icon' => 'dashicons-airplane',
     'public' => true,
     'rewrite' => [
-        'slug' => 'pays',
+        'slug' => 'voyages',
     ],
     'supports' => [
         'title', 'editor', 'excerpt', 'thumbnail',
     ],
 ]);
+
+
+add_image_size('travel-side', 420, 420);
+add_image_size('travel-header', 1920, 400, true);
