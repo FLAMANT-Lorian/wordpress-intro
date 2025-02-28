@@ -58,6 +58,7 @@
             background: #f1f1f1;
             display: flex;
             flex-direction: column-reverse;
+            flex-shrink: 0;
         }
 
         .travel__fig {
@@ -136,8 +137,8 @@ if(have_posts()): while(have_posts()): the_post(); ?>
             <div class="travel__head">
                 <h2 class="travel__title"><?= get_the_title(); ?></h2>
                 <p class="travel__excerpt"><?= get_the_excerpt(); ?></p>
-                <div class="travel__rating" data-score="4">
-                    <p class="sro">Ce voyage obtient l'appréciation de 4 étoiles sur 5</p>
+                <div class="travel__rating" data-score="<?= get_field('rating'); ?>">
+                    <p class="sro">Ce voyage obtient l'appréciation de <?= get_field('rating'); ?> étoiles sur 5</p>
 
                 </div>
             </div>
