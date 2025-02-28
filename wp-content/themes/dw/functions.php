@@ -1,4 +1,8 @@
 <?php
+// Charger les champs ACF exporter de WordPress
+
+include_once('fields.php');
+
 // Disable Gutenberg on the back end.
 add_filter( 'use_block_editor_for_post', '__return_false' );
 
